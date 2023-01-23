@@ -1,0 +1,44 @@
+<div>
+  <div class="row">
+    <div class="col py-5">
+      <h1 class="text-center">Aplicaciòn de interceptores</h1>
+    </div>
+    <div class="col offset-6">
+      <img src="https://th.bing.com/th?id=OIP.T8whS2oHj4NsypnCULLnWAHaHw&w=244&h=255&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2">
+    </div>
+ </div>
+  <div class="row text-center py-2">
+    <h5 class="">VISTA:</h5>
+    <select (click)="paginar(pag.value)" #pag class="shadow appearance-none border rounded py-1 px-3">
+      <option value="10">10</option>
+      <option value="25">25</option>
+      <option value="50">50</option>
+      <option value="100">100</option>
+    </select>
+    <div class="col py-3">
+      <button (click)="paginar('-')" class="bg-white py-1 px-4 border  rounded shadow">Anterior</button>
+    
+    </div>
+    <div class="col py-3">
+      <button (click)="paginar('+')" class="bg-white py-1 px-4 border  rounded shadow">Siguiente</button>
+    
+    </div>
+  </div>
+  <table >
+    <thead>
+      <tr class=" ">
+        <th>ID</th>
+        <th>Titulo</th>
+        <th>Cuerpo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let x of datos | paginacion:page_size:page_number" class="border">
+        <td class="p-2">{{x.id}}</td>
+        <td class="p-2">{{x.title}}</td>
+        <td class="p-2">{{x.body}}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+</div>
